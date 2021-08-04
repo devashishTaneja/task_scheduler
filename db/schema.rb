@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_08_04_104802) do
-=======
-ActiveRecord::Schema.define(version: 2021_08_04_074136) do
->>>>>>> 11c29919c77be43a3ae6af059cd08e5725d7f062
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title"
