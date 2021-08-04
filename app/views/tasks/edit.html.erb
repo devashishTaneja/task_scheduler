@@ -1,0 +1,22 @@
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for :task, url: update_task_path(@task) do |form|%>
+
+        <%= form.label :title%>
+        <%= form.text_field :title %>
+
+        <%= form.label :body%>
+        <%= form.text_field :body %>
+
+        <%= form.label :expires_on%>
+        <%= form.date_field :expires_on %>
+
+        <%= form.label :user_id%>
+        <%= form.collection_select :user_id, User.order(:firstname), :id, :name %>
+
+        <%= form.submit "Modify" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

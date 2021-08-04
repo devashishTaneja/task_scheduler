@@ -1,0 +1,43 @@
+<%# HOME PAGE %>
+
+<% if @user %>
+  
+  <h1> <%= @user.name%> </h1>
+  <div class="container">
+    <h2> Active Tasks </h2>
+    <div class="row">
+      <% @active_tasks.all.each do |task|%>
+          <%= link_to show_task_path(task) , class: "col-md-5 task_class"  do%>
+              <%# <div class="col-4"> %>
+                <h2><%= task.title.upcase %></h2>
+                <h4><%= task.expires_on.to_date %></h4>
+              <%# </div> %>
+          <%end%>
+      <% end %>
+    </div>
+    <h2> Expired Tasks </h2>
+    <div class="row">
+      <% @expired_tasks.all.each do |task|%>
+          <%= link_to show_task_path(task) , class: "col-md-5 task_class"  do%>
+              <%# <div class="col-4"> %>
+                <h2><%= task.title.upcase %></h2>
+                <h4><%= task.expires_on.to_date %></h4>
+              <%# </div> %>
+          <%end%>
+      <% end %>
+    </div>
+  </div>
+
+  <h3> <%= link_to 'Create New Task', new_task_path %> </h3>
+  <h2> Other People </h2>
+  <% if @users %>
+    <% @users.all.each do |user| %>
+      <% if user != current_user %>
+        <h3> <%= link_to user.name, show_user_path(user)%> </h3>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+<% end %>
+

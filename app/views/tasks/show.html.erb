@@ -1,0 +1,10 @@
+<%if @task%>
+  <h1> <%=@task.title.upcase%> </h1>
+  <h2> <%=@task.body%> </h1>
+  <h3> <%=@task.user.name.upcase %>  /  <%=@task.expires_on%> </h3>
+  <%if logged_in?%>
+    <h3>  <%=link_to 'Edit', edit_task_path(@task)%> |  <%=link_to 'Delete', delete_task_path(@task), method: :delete%> </h3>
+  <%end%>
+<%else%>
+  <h1> Not Found </h1>
+<%end%>
