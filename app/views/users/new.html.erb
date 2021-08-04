@@ -1,0 +1,24 @@
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :user, url: signup_path do |form|%>
+      <%= form.label :firstname%>
+      <%= form.text_field :firstname %>
+
+      <%= form.label :lastname%>
+      <%= form.text_field :lastname %>
+
+      <%= form.label :email%>
+      <%= form.text_field :email %>
+
+      <%= form.label :password%>
+      <%= form.password_field :password %>
+
+      <%= form.label :password_confirmation%>
+      <%= form.password_field :password_confirmation %>
+      
+      <%= form.submit "Create Account" %>
+    <% end %>
+  </div>
+</div>

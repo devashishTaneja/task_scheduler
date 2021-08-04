@@ -1,0 +1,27 @@
+<% if @user%>
+  <h1> <%=@user.name%> <h2>
+  <div class="container">
+    <h4> Active Tasks </h4>
+    <div class="row">
+      <% @active_tasks.all.each do |task|%>
+          <%= link_to show_task_path(task) , class: "col-md-5 task_class"  do%>
+              <%# <div class="col-4"> %>
+                <h4><%= task.title.upcase %></h4>
+                <h5><%= task.expires_on.to_date %></h5>
+              <%# </div> %>
+          <%end%>
+      <% end %>
+    </div>
+    <h4> Expired Tasks </h4>
+    <div class="row">
+      <% @expired_tasks.all.each do |task|%>
+          <%= link_to show_task_path(task) , class: "col-md-5 task_class"  do%>
+              <%# <div class="col-4"> %>
+                <h4><%= task.title.upcase %></h4>
+                <h5><%= task.expires_on.to_date %></h5>
+              <%# </div> %>
+          <%end%>
+      <% end %>
+    </div>
+  </div>
+<%end%>
