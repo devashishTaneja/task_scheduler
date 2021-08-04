@@ -15,4 +15,10 @@ Rails.application.routes.draw do
   get 'task/edit/:id', to: 'tasks#edit', as: 'edit_task'
   delete 'task/delete/:id', to: 'tasks#delete', as: 'delete_task'
 
+
+  # LoginController
+  get 'login', to: 'login#index'
+  post 'login', to: 'login#login'
+  delete 'logout', to: 'login#logout'
+
 end
