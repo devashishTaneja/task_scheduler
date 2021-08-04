@@ -13,4 +13,8 @@ class Task < ApplicationRecord
     end
   end
 
+  def comments
+    Comment.where(task_id:self.id)
+  end
+
 end
