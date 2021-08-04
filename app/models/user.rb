@@ -9,4 +9,6 @@ class User < ApplicationRecord
   def name
     return firstname+' '+lastname
   end
+
+  before_save{ self.email= email.downcase }
 end
